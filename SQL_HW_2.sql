@@ -4,7 +4,7 @@ create table employees(
 	employee_name varchar(50) not null
 );
 
---Íàïîëíèòü òàáëèöó employee 70 ñòðîêàìè
+--Наполнить таблицу employee 70 строками
 insert into employees(employee_name)
 	values('Angela Ward'),
 		('Edward Brooks'),
@@ -79,14 +79,14 @@ insert into employees(employee_name)
 		
 select * from employees;
 
---Ñîçäàòü òàáëèöó salary
+--Создать таблицу salary
 create table salary(
 	id serial primary key,
 	mounthly_salary int not null
 );
 
 
---Íàïîëíèòü òàáëèöó salary 15 ñòðîêàìè:
+--Наполнить таблицу salary 15 строками:
 insert into salary(mounthly_salary)
 values (1000),
 	(1100),
@@ -107,14 +107,14 @@ values (1000),
 
 select * from salary;
 
---Ñîçäàòü òàáëèöó employee_salary
+--Создать таблицу employee_salary
 create table employee_salary(
 	id serial primary key,
 	employee_id int unique not null,
 	salary_id int not null
 );
 
---Íàïîëíèòü òàáëèöó employee_salary 40 ñòðîêàìè:
+--Наполнить таблицу employee_salary 10 строками:
 -- â 10 ñòðîê èç 40 âñòàâèòü íåñóùåñòâóþùèå employee_id
 insert into employee_salary(employee_id, salary_id)
 values  (3, 7),
@@ -132,17 +132,17 @@ values  (3, 7),
 
 select * from employee_salary;
 
---Ñîçäàòü òàáëèöó roles
+--Создать таблицу roles
 create table roles(
 	id serial primary key,
 	role_name int unique not null
 );
 
---Ïîìåíÿòü òèï ñòîëáà role_name ñ int íà varchar(30)
+--Поменять тип столбца role_name с int на varchar(30)
 alter table roles 
 alter column role_name type varchar(30) using role_name::varchar(30);
 
---Íàïîëíèòü òàáëèöó roles 20 ñòðîêàìè:
+--Наполнить таблицу roles 20 строками:
 insert into roles(role_name)
 	values('Junior Python developer'),
 		('Middle Python developer'),
@@ -167,7 +167,7 @@ insert into roles(role_name)
 		
 select * from roles;
 
---Ñîçäàòü òàáëèöó roles_employee
+--Создать таблицу roles_employee
 create table roles_employee(
 	id serial primary key,
 	employee_id int unique not null,
@@ -180,7 +180,7 @@ create table roles_employee(
 
 select * from roles_employee;
 
---Íàïîëíèòü òàáëèöó roles_employee 40 ñòðîêàìè:
+--Наполнить таблицу roles_employee 40 строками:
 insert into roles_employee(employee_id, role_id)
 values (35, 2),
  		(8, 12),
